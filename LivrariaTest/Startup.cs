@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace LivrariaTest
 {
@@ -24,6 +25,21 @@ namespace LivrariaTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c => {
+
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Livraria Test",
+                        Version = "v0.1",
+                        Description = "Test API REST ",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Matheus Bruno",
+                            Url = new Uri("https://github.com/mattheusbr")
+                        }
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,9 +52,15 @@ namespace LivrariaTest
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //middleware para usar o Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Indicadores Econômicos V1");
+            });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -9,11 +9,8 @@ C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcorea
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\LivrariaTest.pdb
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\LivrariaTest.Views.dll
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\LivrariaTest.Views.pdb
-C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.csprojAssemblyReference.cache
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.AssemblyInfoInputs.cache
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.AssemblyInfo.cs
-C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.csproj.CoreCompileInputs.cache
-C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.RazorAssemblyInfo.cache
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.RazorAssemblyInfo.cs
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.TagHelpers.input.cache
@@ -35,3 +32,11 @@ C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcorea
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.pdb
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.genruntimeconfig.cache
 C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.csproj.CopyComplete
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.csproj.CoreCompileInputs.cache
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\obj\Debug\netcoreapp3.1\LivrariaTest.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Matheus Bruno\source\repos\LivrariaTest\LivrariaTest\bin\Debug\netcoreapp3.1\LivrariaTest.xml

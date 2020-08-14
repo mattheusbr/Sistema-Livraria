@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "24NBwbtiL4T9iIxBHj2q5LNN95Ypp2uWaVJiflQK8fmeNac0N1prybkxWoDQZMiy1TFNkGPdVsAMMRH9ZxcJ7Q==",
+  "dgSpecHash": "jEhrBhmcT572XGSwczV5HsksYkr4NWPaV54pCf/QLv/1oZ/O12kiI29TTVSyuPIlhL8RPQLCNEhAbajBW37llw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest\\LivrariaTest\\LivrariaTest.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\swashbuckle.aspnetcore\\5.5.1\\swashbuckle.aspnetcore.5.5.1.nupkg.sha512",
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.5.1\\swashbuckle.aspnetcore.swagger.5.5.1.nupkg.sha512",
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.5.1\\swashbuckle.aspnetcore.swaggergen.5.5.1.nupkg.sha512",
+    "C:\\Users\\Matheus Bruno\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.5.1\\swashbuckle.aspnetcore.swaggerui.5.5.1.nupkg.sha512"
+  ],
   "logs": []
 }
