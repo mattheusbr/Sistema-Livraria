@@ -13,9 +13,9 @@ namespace LivrariaTest.Models
         [Key]
         public int IdEditora { get; set; }
 
-        [Required(ErrorMessage = "Nome da editora é obrigatório")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Nome da editora deve ter entre 3 e 30 caracteres")]
+        [Required(ErrorMessage = "Nome do(a) Editor(a) é obrigatório")]
+        [StringLength(40, MinimumLength = 5, ErrorMessage = "Nome do(a) Editor(a) deve ter entre 5 e 40 caracteres")]
         public string Nome { get; set; }
-        public List<Livros> Livros { get; set; }
+        public virtual List<Livro> Livros { get; set; }
     }
 }

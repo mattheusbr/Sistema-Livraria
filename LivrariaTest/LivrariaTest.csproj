@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200816191931_login.cs" />
+    <Compile Remove="Migrations\20200816191931_login.Designer.cs" />
+    <Compile Remove="Migrations\20200816192028_inicio.cs" />
+    <Compile Remove="Migrations\20200816192028_inicio.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />

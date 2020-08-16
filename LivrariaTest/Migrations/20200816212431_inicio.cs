@@ -2,7 +2,7 @@
 
 namespace LivrariaTest.Migrations
 {
-    public partial class Iniciando : Migration
+    public partial class inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace LivrariaTest.Migrations
                 {
                     IdAutor = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 30, nullable: false)
+                    Nome = table.Column<string>(maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,11 +25,25 @@ namespace LivrariaTest.Migrations
                 {
                     IdEditora = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 30, nullable: false)
+                    Nome = table.Column<string>(maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Mt_Editora", x => x.IdEditora);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Usuario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Login = table.Column<string>(nullable: false),
+                    Senha = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,45 +52,46 @@ namespace LivrariaTest.Migrations
                 {
                     IdLivro = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(maxLength: 30, nullable: false),
-                    Mt_Autor = table.Column<int>(nullable: true),
+                    Codigo = table.Column<int>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 40, nullable: false),
                     Autor = table.Column<int>(nullable: false),
-                    Mt_Editora = table.Column<int>(nullable: true),
-                    IdEditora = table.Column<int>(nullable: false),
-                    Descricao = table.Column<string>(maxLength: 700, nullable: true)
+                    Editora = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Mt_Livros", x => x.IdLivro);
                     table.ForeignKey(
-                        name: "FK_Mt_Livros_Mt_Autor_Mt_Autor",
-                        column: x => x.Mt_Autor,
+                        name: "FK_Mt_Livros_Mt_Autor_Autor",
+                        column: x => x.Autor,
                         principalTable: "Mt_Autor",
                         principalColumn: "IdAutor",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Mt_Livros_Mt_Editora_Mt_Editora",
-                        column: x => x.Mt_Editora,
+                        name: "FK_Mt_Livros_Mt_Editora_Editora",
+                        column: x => x.Editora,
                         principalTable: "Mt_Editora",
                         principalColumn: "IdEditora",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Mt_Livros_Mt_Autor",
+                name: "IX_Mt_Livros_Autor",
                 table: "Mt_Livros",
-                column: "Mt_Autor");
+                column: "Autor");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Mt_Livros_Mt_Editora",
+                name: "IX_Mt_Livros_Editora",
                 table: "Mt_Livros",
-                column: "Mt_Editora");
+                column: "Editora");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Mt_Livros");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
 
             migrationBuilder.DropTable(
                 name: "Mt_Autor");

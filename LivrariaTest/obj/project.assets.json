@@ -9008,11 +9008,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest\\LivrariaTest\\LivrariaTest.csproj",
+      "projectUniqueName": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest - Copia\\LivrariaTest\\LivrariaTest.csproj",
       "projectName": "LivrariaTest",
-      "projectPath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest\\LivrariaTest\\LivrariaTest.csproj",
+      "projectPath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest - Copia\\LivrariaTest\\LivrariaTest.csproj",
       "packagesPath": "C:\\Users\\Matheus Bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest\\LivrariaTest\\obj\\",
+      "outputPath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest - Copia\\LivrariaTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Matheus Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",

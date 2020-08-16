@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bh0ua+85vpQnwEqOiKcYn1jEiP4Jom8gD8XbzE3/8PuGX8FkAFAe7kuygKnBWEElCYCh7BNQBO2kv2G54IZIdQ==",
+  "dgSpecHash": "levPsYfWt9nUHUSEN+EJEW791PoM+yZ/57UjuXLuINT3A9+vJB1Y1UfWkLayjXjqRcCUdhD6ILWjiLhaOp7iVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest\\LivrariaTest\\LivrariaTest.csproj",
+  "projectFilePath": "C:\\Users\\Matheus Bruno\\source\\repos\\LivrariaTest - Copia\\LivrariaTest\\LivrariaTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matheus Bruno\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Matheus Bruno\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

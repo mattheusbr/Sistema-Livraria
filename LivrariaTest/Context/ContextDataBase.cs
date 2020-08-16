@@ -13,8 +13,9 @@ namespace LivrariaTest.Context
         {
         }
 
-        public DbSet<Autor> Autor { get; set; }
-        public DbSet<Editora> Editora { get; set; }
-        public DbSet<Livros> Livro { get; set; }
+        public DbSet<Models.Autor> Autor { get; set; }
+        public DbSet<Models.Editora> Editora { get; set; }
+        public DbSet<Models.Livro> Livro { get; set; }
+        public DbSet<Models.Usuario> Usuario { get; set; }
     }
 }
