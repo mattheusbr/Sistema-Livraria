@@ -4,50 +4,78 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container-fluid">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fk_Autor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fk_Editora)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fk_Autor.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fk_Editora.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdLivro">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdLivro">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdLivro">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Código")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Nome")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Autor")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Editora")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Código")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Nome")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Autor")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Editora")
+                            </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fk_Autor.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fk_Editora.Nome)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.IdLivro">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.IdLivro">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.IdLivro">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
