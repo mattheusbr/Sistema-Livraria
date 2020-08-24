@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LivrariaTest.Context;
 using LivrariaTest.Models;
+using LivrariaTest.Migrations;
+using LivrariaTest.Log;
 
 namespace LivrariaTest.Controllers
 {
-    public class LivroController : Controller
+    public class LivroController : Controller 
     {
         private readonly ContextDataBase _context;
+        SistemaLog sistemaLog = new SistemaLog();
 
         public LivroController(ContextDataBase context)
         {
@@ -72,6 +75,7 @@ namespace LivrariaTest.Controllers
                 {
                     _context.Add(livro);
                     await _context.SaveChangesAsync();
+                    sistemaLog.criarLog("Gerenciamento de livros", "Adicionou", "Livro");
                     return RedirectToAction(nameof(Index));
                 }
             }

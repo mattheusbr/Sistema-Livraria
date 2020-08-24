@@ -32,6 +32,9 @@
                             <th>
                                 @Html.DisplayName("Editora")
                             </th>
+                            <th>
+                                @Html.DisplayName("Ações")
+                            </th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -47,6 +50,9 @@
                             </th>
                             <th>
                                 @Html.DisplayName("Editora")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Ações")
                             </th>
                         </tr>
                     </tfoot>
@@ -79,3 +85,21 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+<script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                language: {
+                }
+            });
+    });
+</script>
+}
+
+@section Styles{
+<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+} 
