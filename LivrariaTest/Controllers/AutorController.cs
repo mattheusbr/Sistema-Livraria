@@ -58,9 +58,17 @@ namespace LivrariaTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(autor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                autor.Nome.Trim();
+                if (_context.Autor.Where(x => x.Nome == autor.Nome).Count() > 0)
+                {
+                    ViewBag.Message = "*Já existe um autor(a) cadastrado(a) com esses dados";
+                }
+                else
+                {
+                    _context.Add(autor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }                
             }
             return View(autor);
         }
@@ -95,23 +103,30 @@ namespace LivrariaTest.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (_context.Autor.Where(x => x.Nome == autor.Nome && autor.IdAutor != x.IdAutor).Count() > 0)
                 {
-                    _context.Update(autor);
-                    await _context.SaveChangesAsync();
+                    ViewBag.Message = "*Já existe um autor(a) cadastrado com esses dados";
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!AutorExists(autor.IdAutor))
+                    try
                     {
-                        return NotFound();
+                        _context.Update(autor);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!AutorExists(autor.IdAutor))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(autor);
         }
