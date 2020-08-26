@@ -4,43 +4,47 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Livro</h4>
+<h4>Editar Livro</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdLivro" />
-            <div class="form-group">
-                <label asp-for="Codigo" class="control-label"></label>
-                <input asp-for="Codigo" class="form-control" />
+<div>
+    @Html.AntiForgeryToken()
+    <form style="margin-left: 12%; margin-right: 12%" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="IdLivro" />
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Codigo">Código</label>
+                <input asp-for="Codigo" class="form-control" placeholder="Código" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
+            <div class="form-group col-md-9">
+                <label asp-for="Nome">Nome</label>
+                <input asp-for="Nome" class="form-control" placeholder="Nome do Livro" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Autor" class="control-label"></label>
-                <select asp-for="Autor" class="form-control" asp-items="ViewBag.Autor"></select>
-                <span asp-validation-for="Autor" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Autor">Autor</label>
+                <select asp-for="Autor" class="form-control" asp-items="ViewBag.Autor">
+                    <option selected>Selecione</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label asp-for="Editora" class="control-label"></label>
-                <select asp-for="Editora" class="form-control" asp-items="ViewBag.Editora"></select>
-                <span asp-validation-for="Editora" class="text-danger"></span>
+            <div class="form-group col-md-6">
+                <label asp-for="Editora">Editora</label>
+                <select asp-for="Editora" class="form-control" asp-items="ViewBag.Editora">
+                    <option selected>Selecione</option>
+                </select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+            <span class="text-danger" style="margin-left: 10px;">@ViewData["Message"]</span>
+        </div>
+
+        <input type="submit" value="Editar" class="btn btn-primary" />
+        <a class="btn btn-secondary" asp-action="Index">Listar Livros</a>
+    </form>
+
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

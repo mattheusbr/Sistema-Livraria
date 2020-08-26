@@ -66,6 +66,10 @@ namespace LivrariaTest.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Remover espaços em branco extra
+                livro.Codigo.Trim();
+                livro.Nome.Trim();
+
                 if ((_context.Livro.Where(x => x.Codigo == livro.Codigo).Count() > 0) ||
                     (_context.Livro.Where(x => x.Nome == livro.Nome).Count() >0))
                 {
@@ -75,7 +79,8 @@ namespace LivrariaTest.Controllers
                 {
                     _context.Add(livro);
                     await _context.SaveChangesAsync();
-                    sistemaLog.criarLog("Gerenciamento de livros", "Adicionou", "Livro");
+                    var codigo_livro = livro.Codigo;
+                    sistemaLog.criarLog("Gerenciamento de livros", "Adicionou", $"Livro(código: {codigo_livro})");
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -116,23 +121,33 @@ namespace LivrariaTest.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if ((_context.Livro.Where(x => x.Codigo == livro.Codigo && livro.IdLivro != x.IdLivro).Count() > 0) ||
+                    (_context.Livro.Where(x => x.Nome == livro.Nome && livro.IdLivro != x.IdLivro).Count() > 0))
                 {
-                    _context.Update(livro);
-                    await _context.SaveChangesAsync();
+                    ViewBag.Message = "*Já existe um livro cadastrado com esses dados";
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LivroExists(livro.IdLivro))
+                else {
+                    try
                     {
-                        return NotFound();
+                        _context.Update(livro);
+                        await _context.SaveChangesAsync();
+
+
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!LivroExists(livro.IdLivro))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+
             }
             ViewData["Autor"] = new SelectList(_context.Autor, "IdAutor", "Nome", livro.Autor);
             ViewData["Editora"] = new SelectList(_context.Editora, "IdEditora", "Nome", livro.Editora);

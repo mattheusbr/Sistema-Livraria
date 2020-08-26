@@ -7,6 +7,7 @@
 <h4>Adicionar Livro</h4>
 <hr />
 <div>
+    @Html.AntiForgeryToken()
     <form style="margin-left: 12%; margin-right: 12%" asp-action="Create">
         <div class="form-row">
             <div class="form-group col-md-3">
@@ -26,12 +27,14 @@
                 <select asp-for="Autor" class="form-control" asp-items="ViewBag.Autor">
                     <option selected>Selecione</option>
                 </select>
+                @*<span asp-validation-for="Autor" class="text-danger"></span>*@
             </div>
             <div class="form-group col-md-6">
                 <label asp-for="Editora">Editora</label>
                 <select asp-for="Editora" class="form-control" asp-items="ViewBag.Editora">
                     <option selected>Selecione</option>
                 </select>
+                @* <span asp-validation-for="Editora" class="text-danger"></span>*@
             </div>
             <span class="text-danger" style="margin-left: 10px;">@ViewData["Message"]</span>
         </div>
