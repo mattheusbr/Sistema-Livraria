@@ -7,37 +7,39 @@
 <h4>Adicionar Livro</h4>
 <hr />
 <div>
-    <form style="margin-left: 300px">
+    <form style="margin-left: 12%; margin-right: 12%" asp-action="Create">
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label asp-for="Codigo">Código</label>
-                <input class="form-control" placeholder="Código">
+                <input asp-for="Codigo" class="form-control" placeholder="Código" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-9">
                 <label asp-for="Nome">Nome</label>
-                <input class="form-control" placeholder="Nome do Livro">
+                <input asp-for="Nome" class="form-control" placeholder="Nome do Livro" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label asp-for="Autor">Autor</label>
                 <select asp-for="Autor" class="form-control" asp-items="ViewBag.Autor">
                     <option selected>Selecione</option>
                 </select>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label asp-for="Editora">Editora</label>
                 <select asp-for="Editora" class="form-control" asp-items="ViewBag.Editora">
                     <option selected>Selecione</option>
                 </select>
             </div>
+            <span class="text-danger" style="margin-left: 10px;">@ViewData["Message"]</span>
         </div>
-        <span class="text-danger">@ViewData["Message"]</span>
+
         <input type="submit" value="Cadastrar" class="btn btn-primary" />
         <a class="btn btn-secondary" asp-action="Index">Listar Livros</a>
     </form>
+
 </div>
 
 @section Scripts {

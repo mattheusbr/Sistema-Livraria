@@ -10,14 +10,13 @@ namespace LivrariaTest.Log
     {
         public void criarLog(string modulo, string acao, string detalhes)
         {
-            string caminhoArquivo = @"C:\Log-registro";
             string nomeMaquina = Environment.MachineName;
-            string data = DateTime.Now.ToString("yyyy-MM-dd");
+            string data = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+            var caminhoArquivo = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Log\\Log.txt";
 
             if (!File.Exists(caminhoArquivo))
                 File.Create(caminhoArquivo).Close();
-
-            //File.AppendAllText(caminhoArquivo, "[" + nomeMaquina + "]" + acao + "um" + detalhes + "no modulo" + modulo + "em" + DateTime.Now.ToShortDateString + "\r\n");
+                      
             File.AppendAllText(caminhoArquivo, $"[{nomeMaquina}] {acao} um {detalhes} no modulo {modulo} em {data} \r\n" );
 
         }
