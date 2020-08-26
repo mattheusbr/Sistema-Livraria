@@ -69,7 +69,8 @@
                                 <td>
                                     <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-id="@item.IdLivro">Editar</a>
                                     <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdLivro">Detalhar</a>
-                                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.IdLivro">Deletar</a>
+                                    @{ ViewBag.Id_Livro = item.IdLivro; }
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletarModal">Deletar</button>
                                 </td>
                             </tr>
                         }
@@ -82,6 +83,30 @@
 <div>
     <a class="btn btn-lg btn-success" style="margin-left: 25px" asp-action="Create">Adicionar Livro</a>
 </div>
+
+
+@*Modal para o Deletar*@
+<div class="modal fade" id="deletarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Você deseja deletar esse livro?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Se deseja deletar selecione "Deletar", se foi um engano selecione "Cancelar".</div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "Livro", new { Id = ViewData["Id_Livro"] }, FormMethod.Post))
+                {                    
+                    <input type = "submit" class="btn btn-danger" value="Deletar"/>
+                }                
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts{
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>

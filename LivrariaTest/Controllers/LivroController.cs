@@ -154,30 +154,10 @@ namespace LivrariaTest.Controllers
             return View(livro);
         }
 
-        // GET: Livro/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var livro = await _context.Livro
-                .Include(l => l.Fk_Autor)
-                .Include(l => l.Fk_Editora)
-                .FirstOrDefaultAsync(m => m.IdLivro == id);
-            if (livro == null)
-            {
-                return NotFound();
-            }
-
-            return View(livro);
-        }
-
         // POST: Livro/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var livro = await _context.Livro.FindAsync(id);
             _context.Livro.Remove(livro);
