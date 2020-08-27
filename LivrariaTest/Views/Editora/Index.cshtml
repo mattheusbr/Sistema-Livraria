@@ -1,35 +1,91 @@
 ﻿@model IEnumerable<LivrariaTest.Models.Editora>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listar";
 }
 
-<h1>Index</h1>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Listar Editora</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Nome")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Ações")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Nome")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Ações")
+                            </th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    <a class="btn btn-dark btn-sm" asp-action="Edit" asp-route-id="@item.IdEditora">Editar</a>
+                                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdEditora">Detalhar</a>
+                                    @{ ViewBag.Id_Editora = item.IdEditora; }
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletarModal">Deletar</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-lg btn-success" style="margin-left: 25px" asp-action="Create">Adicionar Editora</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEditora">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdEditora">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEditora">Delete</a>
-            </td>
-        </tr>
+
+@*Modal para o Deletar*@
+<div class="modal fade" id="deletarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Você deseja remover essa editora?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Se deseja deletar selecione "Deletar", se foi um engano selecione "Cancelar".</div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "Autor", new { Id = ViewData["Id_Editora"] }, FormMethod.Post))
+                {
+                    <input type="submit" class="btn btn-danger" value="Deletar" />
+                }
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/vendor/datatables/tradução_datatables.js"></script>
 }
-    </tbody>
-</table>
+
+@section Styles{
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+}
