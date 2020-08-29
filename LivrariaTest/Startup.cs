@@ -6,6 +6,7 @@ using LivrariaTest.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,13 +28,6 @@ namespace LivrariaTest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication("CookieAuthentication")
-                 .AddCookie("CookieAuthentication", config =>
-                 {
-                     config.Cookie.Name = "UserLoginCookie";
-                     config.LoginPath = "/Login/UsuarioLogin";                     ;
-                 });
-
             services.AddControllersWithViews();
             services.AddSwaggerGen(c => {
 
@@ -58,6 +52,10 @@ namespace LivrariaTest
 
             services.AddDbContext<ContextDataBase>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ContextDataBase")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                        .AddEntityFrameworkStores<ContextDataBase>()
+                        .AddErrorDescriber<PortuguesBrIdentityError>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
