@@ -11221,3 +11221,9 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+#img_perfil {
+    background: url(/img/icon_user.svg);
+    background-position: center;
+    background-size: cover;
+}

@@ -53,9 +53,13 @@ namespace LivrariaTest
             services.AddDbContext<ContextDataBase>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ContextDataBase")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            })
                         .AddEntityFrameworkStores<ContextDataBase>()
-                        .AddErrorDescriber<PortuguesBrIdentityError>();
+                        .AddErrorDescriber<PortuguesBrIdentityError>()
+                        .AddEntityFrameworkStores<ContextDataBase>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
