@@ -79,8 +79,8 @@ namespace LivrariaTest.Controllers
                 {
                     _context.Add(livro);
                     await _context.SaveChangesAsync();
-                    var codigo_livro = livro.Codigo;
-                    sistemaLog.criarLog("Gerenciamento de livros", "Adicionou", $"Livro(código: {codigo_livro})");
+                    //var codigo_livro = livro.Codigo;
+                    //sistemaLog.criarLog("Gerenciamento de livros", "Adicionou", $"Livro(código: {codigo_livro})");
                     return RedirectToAction(nameof(Index));
                 }
             }
